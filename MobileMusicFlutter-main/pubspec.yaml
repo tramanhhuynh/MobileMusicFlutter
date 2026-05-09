@@ -1,0 +1,89 @@
+name: music_player
+description: "A modern music player app."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+    sdk: ^3.7.2
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+    flutter:
+        sdk: flutter
+    cupertino_icons: ^1.0.8
+    flutter_svg:
+    flutter_bloc:
+    hydrated_bloc:
+    path_provider:
+    firebase_core:
+    firebase_auth:
+    firebase_storage: ^12.4.10
+    get_it:
+    dartz:
+    cloud_firestore:
+    just_audio:
+    just_audio_background: ^0.0.1-beta.11
+    audio_service: ^0.18.12
+    sqflite: ^2.3.0
+    path: ^1.8.3
+    image_picker: ^1.1.0
+    equatable: ^2.0.5
+    diacritic: ^0.1.6
+    shimmer: ^3.0.0
+    http: ^1.1.0
+    url_launcher: ^6.2.1
+
+dev_dependencies:
+    flutter_test:
+        sdk: flutter
+
+    flutter_lints: ^5.0.0
+
+flutter:
+    uses-material-design: true
+
+    assets:
+        - assets/fonts/
+        - assets/vectors/
+        - assets/vectors/logoMelofyFull.png
+        - assets/vectors/logoMelofyIcon.png
+        - assets/vectors/logoMelofyText.png
+        - assets/vectors/bgSonTung.png
+        - assets/vectors/bgVMH.png
+        - assets/vectors/bgJack.png
+        - assets/vectors/or.png
+        - assets/lyrics/MuonAnhDau.lrc
+
+    fonts:
+        - family: SpotifyMixUI
+          fonts:
+              - asset: assets/fonts/SpotifyMixUI-Title-Variable.ttf
+                weight: 900
+              - asset: assets/fonts/SpotifyMixUI-Bold.ttf
+                weight: 600
+              - asset: assets/fonts/SpotifyMixUI-Title-Bold.ttf
+                weight: 300
+              - asset: assets/fonts/SpotifyMixUI-Title-Extrabold.ttf
+                weight: 500
+              - asset: assets/fonts/SpotifyMixUI-Regular.ttf
+                weight: 400

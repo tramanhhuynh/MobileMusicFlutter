@@ -1,0 +1,79 @@
+# Uncomment this line to define a global platform for your project
+<<<<<<< HEAD
+# platform :ios, '12.0'
+=======
+platform :ios, '12.0'
+>>>>>>> 698990ad9eb2e913cd33eac3c10016cc567d867f
+
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+target 'Runner' do
+  use_frameworks!
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+<<<<<<< HEAD
+=======
+    
+    # Set minimum iOS version to 12.0
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      
+      # Remove all flags and sanitizers that might cause issues
+      config.build_settings.delete('OTHER_CFLAGS')
+      config.build_settings.delete('OTHER_CPLUSPLUSFLAGS')
+      config.build_settings.delete('OTHER_LDFLAGS')
+      config.build_settings.delete('OTHER_SWIFT_FLAGS')
+      
+      # Fix architecture settings
+      config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'i386'
+      config.build_settings['VALID_ARCHS'] = 'arm64 x86_64'
+      
+      # Disable bitcode and set compiler settings
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      config.build_settings['GCC_GENERATE_DEBUGGING_SYMBOLS'] = 'YES'
+      config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+      
+      # Remove problematic sanitizer flags
+      config.build_settings.delete('CLANG_ADDRESS_SANITIZER')
+      config.build_settings.delete('CLANG_THREAD_SANITIZER')
+      config.build_settings.delete('CLANG_UNDEFINED_BEHAVIOR_SANITIZER')
+      
+      # Set warning flags
+      config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'YES'
+      config.build_settings['WARNING_CFLAGS'] = ''
+    end
+>>>>>>> 698990ad9eb2e913cd33eac3c10016cc567d867f
+  end
+end
